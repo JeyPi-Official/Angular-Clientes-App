@@ -1,26 +1,63 @@
-<h3>Clients List</h3>
+<h3>Nuevo cliente</h3>
+
+<div class="row">
+    <div class="col-sm-4">
+        <p>
+            <label for="name">Nombre</label>
+            <input id="name" type="text" class="form-control" [(ngModel)]="client.name">
+        </p>
+        <p>
+            <label for="rfc">RFC</label>
+            <input id="rfc" type="text" class="form-control" [(ngModel)]="client.rfc">
+        </p>
+        <p>
+            <label for="address">Dirección</label>
+            <input id="address" type="text" class="form-control" [(ngModel)]="client.address">
+        </p>
+        <p>
+            <label for="type">Elige un tipo de cliente:</label>
+            <select id="type" type="text" class="form-control" [(ngModel)]="client.type">
+                <option *ngFor="let type of types" value="{{ type.id }}">
+                    {{ type.description }}
+                </option>
+            </select>
+        </p>
+        <p>
+            <button type="button" class="btn btn-primary" (click)="this.insertarCliente()">Insertar</button>
+            <button type="button" class="btn btn-warning m-2" (click)="this.updateCliente()">Modificar</button>
+            <button type="button" class="btn btn-danger" (click)="this.deleteClient(client.id)">Eliminar</button>
+        </p>
+    </div>
+
+    <div class="col-sm-6">
+
+    </div>
+</div>
+
+<h3><strong>Lista de clientes</strong></h3>
 
 <div *ngIf="!clients.length">
     <p>No hay clientes registrados</p>
 </div>
 
-<table *ngIf="clients.length" class="table">
+<table class="table">
     <thead>
         <tr>
-            <th>ID Client</th>
             <th>Name</th>
             <th>RFC</th>
             <th>Address</th>
             <th>Type</th>
+            <th>Select</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let client of clients">
-            <td>{{ client.id }}</td>
             <td>{{ client.name }}</td>
             <td>{{ client.rfc }}</td>
             <td>{{ client.address }}</td>
             <td>{{ client.type }}</td>
+            <td> <button type="button" class="btn btn-success" (click)="selectCliente(client)">Elegir</button>
+            </td>
         </tr>
     </tbody>
 </table>
@@ -28,8 +65,8 @@
 <br><br>
 
 <div *ngIf="clients.length">
-    <strong>Client types:</strong><br>
-    <p>1: Active clients</p>
-    <p>2: Inactive clients</p>
-    <p>3: Debtor clients</p>
+    <strong>Tipos de cliente:</strong><br>
+    <p>1: Clientes activos</p>
+    <p>2: Clientes inactivos</p>
+    <p>3: Clientes deudores</p>
 </div>

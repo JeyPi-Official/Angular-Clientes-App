@@ -2,32 +2,47 @@ import { Injectable } from '@angular/core';
 import { Client } from '../models/client';
 import { TypeClient } from '../models/type_client';
 
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class ClientService {
 
-  private clients: Client[] = [];
   private types: TypeClient[] = [];
+  private client!: Client;
 
-  constructor() {
-    this.clients = [];
-    this.types = [{ id: 0, description: "Undefined" }, { id: 1, description: "Active" }, { id: 2, description: "Inactive" }, { id: 3, description: "Debtor" }];
+  constructor(private firestore: AngularFirestore) {
+    this.types = [{ id: 0, description: "Indefinido" }, { id: 1, description: "Activo" }, { id: 2, description: "Inactivo" }, { id: 3, description: "Deudor" }];
   }
 
-  getClients() {
-    return this.clients;
+  newClient() {
+    this.client = new Client();
+    return this.client;
   }
 
   getTypeClients() {
     return this.types;
   }
 
-  addClient(new_client: Client) {
-    this.clients.push(new_client);
+  // método que permite obtener todos los documentos de la colección
+  getClients() {
+    return this.firestore.collection('clientes').snapshotChanges();
   }
 
-  newClient(): Client {
-    return { id: this.clients.length + 1, name: "", rfc: "", address: "", type: 0 }
+  //método para insertar un método nuevo en la colección
+  createClient(nuevoCliente: Client) {
+    return this.firestore.collection('clientes').add(Object.assign({}, nuevoCliente));
+  }
+
+  //métdo para actualizar un documento existente
+  updateClient(cliente: Client) {
+    this.firestore.doc('clientes/' + cliente.id).update(cliente);
+  }
+
+  //método para eliminar un documento
+  deleteClient(clienteId: string) {
+    this.firestore.doc('clientes/' + clienteId).delete();
   }
 }
