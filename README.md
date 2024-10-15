@@ -1,27 +1,78 @@
-# Clientes
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.0.
+# Angular Clientes App
 
-## Development server
+A streamlined customer management application built with Angular. This app helps businesses efficiently manage their clients, offering features like client data management, filtering, and responsive design. Ideal for companies looking to improve their customer relationship management process.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+- **Client Data Management**: Add, edit, and remove client information.
+- **Search and Filter**: Quickly find clients through robust filtering options.
+- **Responsive Design**: Fully responsive UI for use across devices.
+- **Secure**: Ensures client data privacy with proper authentication measures.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Getting Started
 
-## Build
+Follow these steps to set up the project locally:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Prerequisites
 
-## Running unit tests
+- [Node.js](https://nodejs.org/en/download/) (v14.x or higher)
+- [Angular CLI](https://angular.io/guide/setup-local)
+- A modern browser (Chrome, Firefox, etc.)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Installation
 
-## Running end-to-end tests
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/JeyPi-Official/Angular-Clientes-App.git
+   ```
+2. **Navigate to the project directory**
+   ```bash
+   cd clientes
+   ```
+3. **Install the dependencies**
+   ```bash
+   npm install
+   ```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+4. **Run the app**
+   ```bash
+   ng serve
+   ```
 
-## Further help
+5. **Open in Browser**
+   Navigate to `http://localhost:4200` in your web browser to view the app.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Folder Structure
+
+```bash
+src/
+|-- app/
+|   |-- components/       # UI components
+|   |-- services/         # APIs and client data handling
+|   |-- models/           # Client data models
+|   |-- app.module.ts     # Main Angular module
+|-- assets/               # Static files (images, styles)
+|-- environments/         # Environment-specific configurations
+```
+
+## Key Technologies
+
+- **Angular**: Core framework for the frontend.
+- **Bootstrap**: For responsive layout and styling.
+- **RxJS**: For handling reactive data streams.
+- **Node.js**: To manage dependencies and project tooling.
+
+## Contributing
+
+Contributions are welcome! To contribute:
+
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/new-feature`)
+3. Commit your changes (`git commit -m 'Add new feature'`)
+4. Push to the branch (`git push origin feature/new-feature`)
+5. Open a pull request
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
